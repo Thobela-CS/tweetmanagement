@@ -1,0 +1,36 @@
+package frontend;
+
+import java.io.Console;
+import java.util.Date;
+
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+
+import entities.TweetEntity;
+import services.TweetsEJB;
+
+@ManagedBean(name = "tweetscontroller")
+@SessionScoped
+public class TweetController {
+
+	@EJB
+	private TweetsEJB tweetsEJB;
+	
+	@ManagedProperty(value = "#{tweet}")
+	private TweetModel tweet;
+	
+	public void postTweet() {
+		System.out.print("uploading tweet");
+		tweetsEJB.addNew(tweet);
+		System.out.print(tweet);
+	}
+	
+	private TweetEntity mapptoEntity(TweetModel tweet) {
+		TweetEntity tt = new TweetEntity();
+		tt.setTweetBody(tweet.getTweetBody());
+		tt.setTimestamp(new Date());
+		return tt;
+	}
+}

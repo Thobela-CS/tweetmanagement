@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;frontend&apos; to &apos;models&apos;&#x0D;&#x0A;- Original project: &apos;frontend&apos;&#x0D;&#x0A;- Original element: &apos;frontend/src/frontend&apos;&#x0D;&#x0A;- Renamed element: &apos;frontend/src/models&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;frontend&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;frontend" name="models" qualified="false" references="true" stamp="1571913004069" textual="false" version="1.0"/>
+</session>

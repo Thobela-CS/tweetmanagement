@@ -1,0 +1,13 @@
+package entities;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity(name = "tweets_tbl")
+public class TweetEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long Id;
+	public String tweetBody;
+	public Date timestamp;
+}

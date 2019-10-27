@@ -1,0 +1,52 @@
+package frontend;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+
+import entities.TweetEntity;
+import services.TweetsEJB;
+
+@ManagedBean(name = "tweetController")
+@SessionScoped
+public class TweetController {
+
+	@EJB
+	private TweetsEJB tweetsEJB;
+	
+	@ManagedProperty(value = "#{tweet}")
+	private TweetModel tweet;
+	
+	public void postTweet() {
+		System.out.print("uploading tweet");
+		tweetsEJB.addNew(mapToEntity(tweet));
+		System.out.print(tweet);
+	}
+	
+	public List<TweetModel> getAllTweets()
+	{
+		System.out.print("get all tweets");
+		List<TweetEntity> tweetsEntites = tweetsEJB.getAllTweets();
+	}
+	
+	private TweetEntity mapToEntity(TweetModel tweet) {
+		TweetEntity tt = new TweetEntity();
+		tt.setTweetBody(tweet.getTweetBody());
+		tt.setTimestamp(new Date());
+		return tt;
+	}
+	
+	private List<TweetModel> mapToModel(List<TweetEntity> entities) {
+		List<TweetModel> xx = new ArrayList();
+		for (TweetEntity tweetEntity : entities) {
+			TweetModel zz = new TweetModel(tweetEntity.getTweetBody(), tweetEntity.getTimestamp());
+			xx.add(zz);
+		}
+		return zz;
+	}
+}

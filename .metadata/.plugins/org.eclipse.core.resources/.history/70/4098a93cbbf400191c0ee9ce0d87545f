@@ -1,0 +1,11 @@
+package frontend;
+
+import java.util.Date;
+
+public class TweetModel {
+	public Long Id;
+	public String tweetBody;
+	public Date timestamp;
+	
+	
+}
