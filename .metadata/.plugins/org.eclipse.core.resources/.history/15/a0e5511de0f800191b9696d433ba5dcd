@@ -43,7 +43,7 @@ public class TweetsEJB {
 					.setOAuthAccessTokenSecret("CpwOVBQu9QRB44u3EMPDH56noEPlgqe995aOnWLaIlpJf");
 			TwitterFactory tfactory = new TwitterFactory(configBuilder.build());
 			Twitter sender = tfactory.getInstance();
-			DirectMessage response = sender.sendDirectMessage("@AdhLecturer", message);
+			DirectMessage response = sender.sendDirectMessage("@collenThobs", message);
 			System.out.println("Sent: " + message + " to @" + response.getText());
 		} catch (Exception e) {
 			System.out.println("Something went wrong while sending tweet");
